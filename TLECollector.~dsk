@@ -10,24 +10,17 @@ File_7=SourceModule,'C:\Projects.delphi\MSUOnTLE\Unit1.pas',0,1,1665,1,1694,1,0
 File_8=SourceModule,'C:\Projects.delphi\MSUOnTLE\Unit1.dfm',0,1,1,1,1,0,0
 
 [Modules]
-Module0=C:\Projects.delphi\TLEColletor\TLECollector.dpr
-Module1=C:\Projects.delphi\TLEColletor\Unit1.pas
-Module2=c:\program files (x86)\borland\delphi7\source\rtl\Win\Windows.pas
-Module3=c:\program files (x86)\borland\delphi7\source\rtl\Sys\sysutils.pas
-Module4=c:\program files (x86)\borland\delphi7\source\vcl\filectrl.pas
-Module5=c:\program files (x86)\borland\delphi7\source\vcl\Dialogs.pas
-Count=6
+Module0=c:\program files (x86)\borland\delphi7\source\vcl\filectrl.pas
+Module1=c:\program files (x86)\borland\delphi7\source\rtl\Win\Windows.pas
+Module2=c:\program files (x86)\borland\delphi7\source\rtl\Sys\sysutils.pas
+Module3=c:\program files (x86)\borland\delphi7\source\vcl\Dialogs.pas
+Count=4
 EditWindowCount=1
 
-[C:\Projects.delphi\TLEColletor\TLECollector.dpr]
+[c:\program files (x86)\borland\delphi7\source\vcl\filectrl.pas]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
-
-[C:\Projects.delphi\TLEColletor\Unit1.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=1
 
 [c:\program files (x86)\borland\delphi7\source\rtl\Win\Windows.pas]
 ModuleType=SourceModule
@@ -39,29 +32,26 @@ ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[c:\program files (x86)\borland\delphi7\source\vcl\filectrl.pas]
-ModuleType=SourceModule
-FormState=0
-FormOnTop=0
-
 [c:\program files (x86)\borland\delphi7\source\vcl\Dialogs.pas]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[C:\Projects.delphi\TLEColletor\ProjectGroup1.bpg]
+[C:\Projects.delphi\TLECollector\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\Projects.delphi\TLECollector\TLECollector.dpr]
 FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=6
+ViewCount=4
 CurrentView=1
 View0=0
 View1=1
 View2=2
 View3=3
-View4=4
-View5=5
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -81,44 +71,30 @@ LeftPanelData=00000400010000000C000000436F64654578706C6F726572000000000000000000
 RightPanelSize=0
 BottomPanelSize=257
 BottomPanelClients=MessageView@EditWindow0,WatchWindow
-BottomPanelData=00000400010000000B0000004D65737361676556696577010100000000000001B0030000000000000100000000000100000B000000576174636857696E646F770100000000000100000B0000004D6573736167655669657701000000000101000000000000FFFFFFFF
+BottomPanelData=0000040000000000B0030000000000000201010000000000000100000001D8010000000000000200000000010100000B000000576174636857696E646F7702000000000001000000000000020000000001010000000000000100000000B00300000B0000004D65737361676556696577FFFFFFFF
 
 [View0]
-Module=C:\Projects.delphi\TLEColletor\Unit1.pas
-CursorX=1
-CursorY=426
-TopLine=414
-LeftCol=1
-
-[View1]
-Module=C:\Projects.delphi\TLEColletor\TLECollector.dpr
-CursorX=18
-CursorY=1
-TopLine=1
-LeftCol=1
-
-[View2]
 Module=c:\program files (x86)\borland\delphi7\source\vcl\Dialogs.pas
 CursorX=1
 CursorY=76
 TopLine=55
 LeftCol=1
 
-[View3]
+[View1]
 Module=c:\program files (x86)\borland\delphi7\source\vcl\filectrl.pas
 CursorX=1
 CursorY=369
 TopLine=348
 LeftCol=1
 
-[View4]
+[View2]
 Module=c:\program files (x86)\borland\delphi7\source\rtl\Sys\sysutils.pas
 CursorX=12
 CursorY=59
 TopLine=40
 LeftCol=1
 
-[View5]
+[View3]
 Module=c:\program files (x86)\borland\delphi7\source\rtl\Win\Windows.pas
 CursorX=1
 CursorY=4934
@@ -137,11 +113,11 @@ Visible=1
 State=0
 Left=12
 Top=0
-Width=932
+Width=456
 Height=257
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=932
+ClientWidth=456
 ClientHeight=257
 TBDockHeight=257
 LRDockWidth=426
@@ -161,8 +137,8 @@ Left=0
 Top=0
 Width=1366
 Height=123
-MaxLeft=-8
-MaxTop=-8
+MaxLeft=-1
+MaxTop=-1
 MaxWidth=1382
 MaxHeight=123
 ClientWidth=1366
@@ -247,7 +223,7 @@ LRDockWidth=190
 Dockable=1
 SplitPos=104
 ArrangeBy=Name
-SelectedItem=Caption
+SelectedItem=
 ExpandedItems=Anchors,HorzScrollBar,Options,OptionsEx,VertScrollBar
 HiddenCategories=
 
@@ -451,17 +427,17 @@ Dockable=1
 
 [MessageView@EditWindow0]
 Create=1
-Visible=0
+Visible=1
 State=0
-Left=12
-Top=128
-Width=932
-Height=128
+Left=484
+Top=0
+Width=460
+Height=257
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=932
-ClientHeight=128
-TBDockHeight=128
+ClientWidth=460
+ClientHeight=257
+TBDockHeight=257
 LRDockWidth=443
 Dockable=1
 

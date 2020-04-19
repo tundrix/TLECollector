@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ComCtrls, filectrl, ImgList, inifiles,
   ExtCtrls, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
-  IdHTTP;
+  IdHTTP, idglobal;
 
 type
   TForm1 = class(TForm)
@@ -27,6 +27,9 @@ type
     SpeedButton9: TSpeedButton;
     SpeedButton10: TSpeedButton;
     ProgressBar1: TProgressBar;
+    Edit1: TEdit;
+    Label2: TLabel;
+    SpeedButton11: TSpeedButton;
     procedure UpdateNodeFile(nodFile:TTreeNode);
     procedure MakeTLEMemo();
     procedure LoadTreeFromTLEDirectory(TLEDirectory:string; internetOrStaticDir:bool);
@@ -42,6 +45,8 @@ type
     procedure SpeedButton9Click(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton8Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure SpeedButton11Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -415,14 +420,17 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
  inif:TIniFile;
  dir:string;
+ urls:TStrings;
 begin
   localInternetTLEDir:=extractfiledir(paramstr(0))+'\internettle';
   inifPath:=extractfiledir(paramstr(0))+'\tlecollector.ini';
   inif:=TIniFile.Create(inifPath);
   loadFromLocalInternetDirectory:=inif.ReadBool('Options','LastLoadFromLocalInternetDirectory',True);
+  edit1.Text:=inttostr(inif.ReadInteger('Options','DownloadFileTimeOut',5000));
 
   defURLs:=memo2.Text;
-  memo2.Lines:=LoadURLs(inif);
+  urls:=LoadURLs(inif);
+  if urls.count>0 then memo2.Lines:=urls;
 
   if not DirectoryExists(localInternetTLEDir) then
     begin
@@ -495,6 +503,7 @@ var
 begin
   inif:=TIniFile.Create(inifPath);
   idHttp:=TIdHTTP.Create(self);
+  idHttp.ReadTimeout:=strtointdef(edit1.text,5000);
 
   ProgressBar1.Position:=0;
   ProgressBar1.Visible:=true;
@@ -538,6 +547,8 @@ var
 begin
   inif:=TIniFile.Create(inifPath);
   SaveUrls(inif,memo2.Lines);
+  if speedbutton11.Enabled then
+    inif.WriteInteger('Options','DownloadFileTimeOut',StrToInt(edit1.Text));
 end;
 
 procedure TForm1.SpeedButton10Click(Sender: TObject);
@@ -548,11 +559,25 @@ var
 begin
   inif:=TIniFile.Create(inifPath);
   memo2.Lines:=LoadURLs(inif);
+  edit1.Text:=inttostr(inif.ReadInteger('Options','DownloadFileTimeOut',5000));
 end;
 
 procedure TForm1.SpeedButton8Click(Sender: TObject);
 begin
   memo2.Text:=defURLs;
+end;
+
+procedure TForm1.Edit1Change(Sender: TObject);
+begin
+  SpeedButton11.Enabled:=(StrToIntDef(edit1.Text,-1) > 0);
+end;
+
+procedure TForm1.SpeedButton11Click(Sender: TObject);
+var
+ inif:TIniFile;
+begin
+  inif:=TIniFile.Create(inifPath);
+  inif.WriteInteger('Options','DownloadFileTimeOut',StrToInt(edit1.Text));
 end;
 
 end.

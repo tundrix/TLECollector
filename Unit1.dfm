@@ -130,7 +130,7 @@ object Form1: TForm1
       Top = 16
       Width = 121
       Height = 22
-      Caption = 'Save list to INI'
+      Caption = 'Save URLs list to INI'
       OnClick = SpeedButton9Click
     end
     object SpeedButton10: TSpeedButton
@@ -141,11 +141,26 @@ object Form1: TForm1
       Caption = 'Load list from INI'
       OnClick = SpeedButton10Click
     end
+    object Label2: TLabel
+      Left = 16
+      Top = 50
+      Width = 79
+      Height = 13
+      Caption = 'Get timeout (ms):'
+    end
+    object SpeedButton11: TSpeedButton
+      Left = 160
+      Top = 48
+      Width = 121
+      Height = 22
+      Caption = 'Save timeout to INI'
+      OnClick = SpeedButton11Click
+    end
     object Memo2: TMemo
       Left = 16
-      Top = 56
+      Top = 80
       Width = 409
-      Height = 169
+      Height = 145
       Anchors = [akLeft, akTop, akRight, akBottom]
       Lines.Strings = (
         'http://www.celestrak.com/NORAD/elements/amateur.txt'
@@ -184,6 +199,15 @@ object Form1: TForm1
       ScrollBars = ssBoth
       TabOrder = 0
       WordWrap = False
+    end
+    object Edit1: TEdit
+      Left = 104
+      Top = 48
+      Width = 49
+      Height = 21
+      TabOrder = 1
+      Text = 'Edit1'
+      OnChange = Edit1Change
     end
   end
   object ProgressBar1: TProgressBar
