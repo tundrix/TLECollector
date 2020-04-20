@@ -338,6 +338,7 @@ begin
 
           until FindNext(foundFile)<>0;
           findclose(foundFile);
+          TreeView1.AlphaSort(true);
 
           SpeedButton4Click(nil);
           MakeTLEMemo();

@@ -503,7 +503,7 @@ var
 begin
   inif:=TIniFile.Create(inifPath);
   idHttp:=TIdHTTP.Create(self);
-  idHttp.ReadTimeout:=1000;
+  idHttp.ReadTimeout:=strtointdef(edit1.text,5000);
 
   ProgressBar1.Position:=0;
   ProgressBar1.Visible:=true;
