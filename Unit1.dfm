@@ -13,8 +13,8 @@ object Form1: TForm1
   OldCreateOrder = False
   OnCreate = FormCreate
   DesignSize = (
-    912
-    441)
+    920
+    453)
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton1: TSpeedButton

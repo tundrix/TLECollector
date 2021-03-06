@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ComCtrls, filectrl, ImgList, inifiles,
   ExtCtrls, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
-  IdHTTP, idglobal;
+  IdHTTP, idglobal, ShellApi;
 
 type
   TForm1 = class(TForm)
@@ -200,9 +200,21 @@ end;
 
 procedure TForm1.TreeView1DblClick(Sender: TObject);
 var
-  N: TTreeNode;
+ N: TTreeNode;
+ inif:TIniFile;
+ dir:string;
 begin
   N:=TreeView1.Selected;
+  if N.Level=0 then
+    begin
+      try
+        inif:=TIniFile.Create(inifPath);
+        dir:=inif.readString('Options','StaticTLEDirectory','');
+        ShellExecute(Handle, nil,
+          PChar(dir+'\'+N.Text),
+          nil, nil, SW_SHOWNORMAL);
+      except end;
+    end;
   if N.Level=1 then
     begin
       N.StateIndex:=3-N.StateIndex;
@@ -327,7 +339,7 @@ begin
             ReadLn(tf, textLine);
             while not Eof(tf) do
               begin
-                if (textLine[1]<>'1')and(textLine[1]<>'2') then
+                if ( (textLine[1]<>'1')and(textLine[1]<>'2') ) or (textLine[2]<>' ') then
                   begin
                     curNode2:=TreeView1.Items.AddChild(curNode, textLine);
                     curNode2.StateIndex:=1;
@@ -338,6 +350,7 @@ begin
 
           until FindNext(foundFile)<>0;
           findclose(foundFile);
+          TreeView1.AlphaSort(true);
 
           SpeedButton4Click(nil);
           MakeTLEMemo();
